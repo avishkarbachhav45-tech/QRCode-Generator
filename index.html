@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>QR Code Generator</h1>
+        <p>A simple tool to create QR codes</p>
+    </header>
+
+    <!-- Main App Wrapper -->
+    <main>
+
+        <!-- Left Side: User Input Section -->
+        <section>
+            <h2>Enter Text or URL</h2>
+            <input type="text" id="qrText" placeholder="Type something here...">
+
+            <button id="generateBtn">Generate QR</button>
+        </section>
+
+        <!-- Right Side: Output / Preview Section -->
+        <section>
+            <h2>QR Preview</h2>
+
+            <!-- Canvas jaha QR code show hoga (Day 3 se) -->
+            <canvas id="qrCanvas" width="200" height="200" 
+                    style="border: 1px solid #ccc;">
+            </canvas>
+        </section>
+
+    </main>
+
+</body>
+</html>
