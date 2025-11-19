@@ -27,3 +27,32 @@ button {
     color: white;
     border: none;
 }
+
+
+main {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+
+main section:first-child {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+main section:last-child {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+canvas {
+    margin-top: 10px;
+}
