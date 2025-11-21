@@ -39,6 +39,15 @@ btn.addEventListener("click", () => {
     img.onload = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        if (logoImage) {
+            const logoSize = canvas.width * 0.25;  // 25% of QR size
+            const x = (canvas.width - logoSize) / 2;
+            const y = (canvas.height - logoSize) / 2;
+
+            ctx.drawImage(logoImage, x, y, logoSize, logoSize);
+        }
+
     };
 
     img.src = qr.toDataURL();
