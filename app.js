@@ -73,3 +73,10 @@ logoInput.addEventListener("change", function () {
     reader.readAsDataURL(file);
 });
 
+
+downloadBtn.addEventListener("click", () => {
+    const link = document.createElement("a");
+    link.download = "qr-code.png";   // file name
+    link.href = canvas.toDataURL();  // convert canvas → image URL
+    link.click();                    // trigger download
+});
