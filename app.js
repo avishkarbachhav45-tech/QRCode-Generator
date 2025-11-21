@@ -1,3 +1,5 @@
+const logoInput = document.getElementById("logoInput");
+let logoImage = null;
 console.log("Script loaded"); 
 
 const input = document.getElementById("qrText");
@@ -41,3 +43,24 @@ btn.addEventListener("click", () => {
 
     img.src = qr.toDataURL();
 });
+
+logoInput.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (!file) {
+        logoImage = null;
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+        logoImage = new Image();
+        logoImage.src = event.target.result;
+
+        console.log("Logo loaded:", file.name);
+    };
+
+    reader.readAsDataURL(file);
+});
+
