@@ -5,6 +5,9 @@ console.log("Script loaded");
 const input = document.getElementById("qrText");
 const btn = document.getElementById("generateBtn");
 const canvas = document.getElementById("qrCanvas");
+const fgColor = document.getElementById("fgColor");
+const bgColor = document.getElementById("bgColor");
+
 
 btn.addEventListener("click", () => {
     const value = input.value.trim();
@@ -17,9 +20,11 @@ btn.addEventListener("click", () => {
 
     try {
         const qr = new QRious({
-            value: value,
-            size: 200
-        });
+        value: value,
+        size: 200,
+        foreground: fgColor.value,
+        background: bgColor.value
+    });
 
         const ctx = canvas.getContext("2d");
         const img = new Image();
@@ -47,41 +52,14 @@ btn.addEventListener("click", () => {
     }
 });
 
-// generate QR and draw on canvas
+// Live preview 
+input.addEventListener("input", () => btn.click());
 
-btn.addEventListener("click", () => {
-    const value = input.value.trim();
+// Live update when color changes
+fgColor.addEventListener("input", () => btn.click());
+bgColor.addEventListener("input", () => btn.click());
 
-    if (value === "") {
-        alert("Please enter some text or URL");
-        return;
-    }
 
-    const qr = new QRious({
-        value: value,
-        size: 200 //fixed size
-    });
-
-    // Render into canvas
-    const ctx = canvas.getContext("2d");
-    const img = new Image();
-
-    img.onload = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-        if (logoImage) {
-            const logoSize = canvas.width * 0.25;  // 25% of QR size
-            const x = (canvas.width - logoSize) / 2;
-            const y = (canvas.height - logoSize) / 2;
-
-            ctx.drawImage(logoImage, x, y, logoSize, logoSize);
-        }
-
-    };
-
-    img.src = qr.toDataURL();
-});
 
 logoInput.addEventListener("change", function () {
     const file = this.files[0];
