@@ -10,11 +10,41 @@ btn.addEventListener("click", () => {
     const value = input.value.trim();
 
     if (value === "") {
-        alert("Please enter some text or URL");
+        alert("⚠️ Please enter some text or a valid URL!");
+        input.focus();
         return;
     }
 
-    console.log("User input:", value);  
+    try {
+        const qr = new QRious({
+            value: value,
+            size: 200
+        });
+
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+
+        img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            // If logo present
+            if (logoImage) {
+                const logoSize = canvas.width * 0.25;
+                const x = (canvas.width - logoSize) / 2;
+                const y = (canvas.height - logoSize) / 2;
+                ctx.drawImage(logoImage, x, y, logoSize, logoSize);
+            }
+
+            console.log("QR generated successfully!");
+        };
+
+        img.src = qr.toDataURL();
+
+    } catch (error) {
+        alert("❌ Something went wrong while generating the QR!");
+        console.error("QR Generation Error:", error);
+    }
 });
 
 // generate QR and draw on canvas
