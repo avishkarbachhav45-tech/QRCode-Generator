@@ -19,11 +19,21 @@ btn.addEventListener("click", () => {
     }
 
     try {
+        const size = 300;  // Bigger and nicer QR size
+        const dpr = window.devicePixelRatio || 1;
+
+        canvas.width = size * dpr;
+        canvas.height = size * dpr;
+        canvas.style.width = size + "px";
+        canvas.style.height = size + "px";
+
         const qr = new QRious({
-        value: value,
-        size: 200,
-        foreground: fgColor.value,
-        background: bgColor.value
+            value: value,
+            size: size * dpr,
+            foreground: fgColor.value,
+            background: bgColor.value
+        
+
     });
 
         const ctx = canvas.getContext("2d");
