@@ -56,3 +56,31 @@ main section:last-child {
 canvas {
     margin-top: 10px;
 }
+
+
+
+@media (max-width: 850px) {
+    main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    section {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input, button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #qrCanvas {
+        width: 180px !important;
+        height: 180px !important;
+    }
+}
