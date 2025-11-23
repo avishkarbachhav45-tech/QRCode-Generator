@@ -62,8 +62,18 @@ btn.addEventListener("click", () => {
     }
 });
 
-// Live preview 
-input.addEventListener("input", () => btn.click());
+// Live preview - update QR on typing
+input.addEventListener("input", () => {
+    const value = input.value.trim();
+
+    if (value === "") {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear preview
+        return;
+    }
+
+    btn.click();
+});
 
 // Live update when color changes
 fgColor.addEventListener("input", () => btn.click());
