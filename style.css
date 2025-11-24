@@ -5,9 +5,37 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(120deg, #d0e7ff, #fce5ff);
+    overflow-x: hidden;
+    position: relative;
+}
+
+.bg-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    filter: blur(130px);
+    z-index: -1;
+}
+
+.circle1 {
+    background: #7db9ff;
+    top: -30px;
+    left: -50px;
+}
+
+.circle2 {
+    background: #ff8dd5;
+    bottom: -40px;
+    right: -40px;
 }
 
 
@@ -29,26 +57,41 @@ h3 {
     font-weight: 600;
 }
 
+
 header {
     text-align: center;
-    margin-bottom: 20px;
-    padding: 25px 10px;
-    background: linear-gradient(to right, #e3f2fd, #bbdefb);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin: 25px 0;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    animation: fadeDown 0.6s ease-out;
 }
+
 
 
 header h1 {
-    font-size: 32px;
-    color: #0d47a1;
-    margin-bottom: 5px;
+    font-size: 34px;
+    color: #003a78;
     font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 header p {
-    font-size: 16px;
-    color: #1565c0;
+    font-size: 15px;
+    color: #004b9c;
+    margin-top: 5px;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -192,10 +235,14 @@ input:focus {
 
 
 section {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    margin: 12px auto;
 }
 
 #qrCanvas {
@@ -217,4 +264,29 @@ footer {
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
+}
+
+section {
+    padding: 28px;
+}
+
+#qrCanvas {
+    border: 3px solid #1565c0;
+    box-shadow: 0 6px 16px rgba(21, 101, 192, 0.25);
+    width: 260px;
+    height: 260px;
+}
+
+button {
+    margin-top: 6px;
+}
+
+input, button {
+    transition: 0.25s ease-in-out;
+}
+
+h2 {
+    font-size: 22px;
+    color: #0d47a1;
+    margin-bottom: 15px;
 }
