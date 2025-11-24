@@ -46,11 +46,19 @@ button {
     border: none;
 }
 
+label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: inline-block;
+    color: #0d47a1;
+}
+
 
 main {
     display: flex;
-    gap: 30px;
-    margin-top: 20px;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
 }
 
 
@@ -142,7 +150,17 @@ input:focus {
 
 section {
     background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+#qrCanvas {
     border-radius: 10px;
-    padding: 18px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+    background: #fff;
+    padding: 10px;
+    border: 2px solid #90caf9;
+    display: block;
+    margin: 10px auto;
+    box-shadow: 0 4px 10px rgba(13, 71, 161, 0.15);
 }
