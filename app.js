@@ -8,59 +8,66 @@ const canvas = document.getElementById("qrCanvas");
 const fgColor = document.getElementById("fgColor");
 const bgColor = document.getElementById("bgColor");
 
+const sizeSlider = document.getElementById("qrSize");
 
-btn.addEventListener("click", () => {
+
+btn.addEventListener("click", generateQR);
+sizeSlider.addEventListener("input", generateQR);
+fgColor.addEventListener("input", generateQR);
+bgColor.addEventListener("input", generateQR);
+
+input.addEventListener("input", () => {
+    if (input.value.trim() === "") {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+    }
+    generateQR();
+});
+
+
+function generateQR() {
     const value = input.value.trim();
+    const qrSize = parseInt(sizeSlider.value);  // slider size used here!
 
-    if (value === "") {
-        alert("⚠️ Please enter some text or a valid URL!");
-        input.focus();
+    if (!value) {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         return;
     }
 
-    try {
-        const size = 300;  // Bigger and nicer QR size
-        const dpr = window.devicePixelRatio || 1;
+    const dpr = window.devicePixelRatio || 1;
 
-        canvas.width = size * dpr;
-        canvas.height = size * dpr;
-        canvas.style.width = size + "px";
-        canvas.style.height = size + "px";
+    canvas.width = qrSize * dpr;
+    canvas.height = qrSize * dpr;
+    canvas.style.width = qrSize + "px";
+    canvas.style.height = qrSize + "px";
 
-        const qr = new QRious({
-            value: value,
-            size: size * dpr,
-            foreground: fgColor.value,
-            background: bgColor.value
-        
-
+    const qr = new QRious({
+        value: value,
+        size: qrSize * dpr,
+        foreground: fgColor.value,
+        background: bgColor.value
     });
 
-        const ctx = canvas.getContext("2d");
-        const img = new Image();
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
 
-        img.onload = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    img.onload = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-            // If logo present
-            if (logoImage) {
-                const logoSize = canvas.width * 0.25;
-                const x = (canvas.width - logoSize) / 2;
-                const y = (canvas.height - logoSize) / 2;
-                ctx.drawImage(logoImage, x, y, logoSize, logoSize);
-            }
+        if (logoImage) {
+            const logoSize = qrSize * 0.25;
+            const x = (canvas.width - logoSize) / 2;
+            const y = (canvas.height - logoSize) / 2;
+            ctx.drawImage(logoImage, x, y, logoSize, logoSize);
+        }
+    };
 
-            console.log("QR generated successfully!");
-        };
+    img.src = qr.toDataURL();
+}
 
-        img.src = qr.toDataURL();
-
-    } catch (error) {
-        alert("❌ Something went wrong while generating the QR!");
-        console.error("QR Generation Error:", error);
-    }
-});
 
 // Live preview - update QR on typing
 input.addEventListener("input", () => {

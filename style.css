@@ -126,16 +126,25 @@ main section:first-child {
 }
 
 main section:last-child {
-    flex: 1;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    flex: none;
+    width: auto;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.35);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+
+
 canvas {
-    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -289,4 +298,54 @@ h2 {
     font-size: 22px;
     color: #0d47a1;
     margin-bottom: 15px;
+}
+
+/* BEAUTIFUL GLASS SLIDER */
+#qrSize {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Track */
+#qrSize::-webkit-slider-runnable-track {
+    height: 10px;
+    background: linear-gradient(90deg, #64b5f6, #1e88e5);
+    border-radius: 10px;
+}
+
+/* Thumb */
+#qrSize::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    background: #ffffff;
+    border: 3px solid #1e88e5;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(30, 136, 229, 0.5);
+    margin-top: -6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#qrSize::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 14px rgba(30, 136, 229, 0.7);
+}
+
+.qr-container {
+    display: inline-block;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin-top: 10px;
 }

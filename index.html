@@ -35,6 +35,8 @@
             <label for="bgColor">Background Color:</label>
             <input type="color" id="bgColor" value="#ffffff">
 
+
+
             <button id="generateBtn">Generate QR</button>
             
             <button id="downloadBtn">Download QR</button>
@@ -45,11 +47,15 @@
         <section>
             <h2>QR Preview</h2>
 
-            <canvas id="qrCanvas" width="200" height="200" 
-                    style="border: 1px solid #ccc;">
-            </canvas>
+            <div class="qr-container">
+                <canvas id="qrCanvas"></canvas>
+            </div>
+            <label for="qrSize">QR Size:</label>
+            <input type="range" id="qrSize" min="100" max="500" value="260">
+
         </section>
 
+        
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
