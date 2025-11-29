@@ -1,3 +1,29 @@
+:root {
+    --bg-gradient-start: #d0e7ff;
+    --bg-gradient-end: #fce5ff;
+    --text-color: #003a78;
+    --card-bg: rgba(255, 255, 255, 0.35);
+    --card-border: rgba(255, 255, 255, 0.45);
+    --btn-bg: #1565c0;
+    --btn-bg-hover: #0d47a1;
+}
+
+.dark {
+    --bg-gradient-start: #0f172a;
+    --bg-gradient-end: #1e293b;
+
+    --text-color: #e2e8f0;
+
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.15);
+
+    --btn-bg: #3b82f6;
+    --btn-bg-hover: #2563eb;
+
+    --heading-color: #93c5fd;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +39,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background: linear-gradient(120deg, #d0e7ff, #fce5ff);
+    background: linear-gradient(120deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--text-color);
+    transition: 0.4s ease;
     overflow-x: hidden;
     position: relative;
 }
@@ -70,6 +98,12 @@ header {
     border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     animation: fadeDown 0.6s ease-out;
+    .dark h1,
+    .dark h2,
+    .dark h3 {
+        color: var(--heading-color);
+    }
+
 }
 
 
@@ -252,6 +286,7 @@ section {
     width: 100%;
     max-width: 450px;
     margin: 12px auto;
+    
 }
 
 #qrCanvas {
@@ -276,8 +311,14 @@ footer {
 }
 
 section {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
     padding: 28px;
+    transition: 0.4s ease;
 }
+
 
 #qrCanvas {
     border: 3px solid #1565c0;
@@ -348,4 +389,34 @@ h2 {
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     margin-top: 10px;
+}
+
+.theme-btn {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: var(--btn-bg);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: var(--btn-bg-hover);
+}
+
+.dark .qr-container {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.dark #qrSize::-webkit-slider-runnable-track {
+    background: #334155; 
+}
+
+.dark #qrSize::-webkit-slider-thumb {
+    border-color: #3b82f6;
+    background: #e2e8f0;
 }
