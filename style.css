@@ -72,18 +72,21 @@ h1{
 }
 
 h2 {
-    color: #0d47a1;
     font-size: 20px;
     margin-bottom: 12px;
     font-weight: 600;
 }
 
 h3 {
-    color: #0d47a1;
     font-size: 20px;
     margin-bottom: 12px;
     font-weight: 600;
 }
+
+h2, h3, label, header h1, header p {
+    color: var(--text-color);
+}
+
 
 
 header {
@@ -112,7 +115,6 @@ header {
 
 header h1 {
     font-size: 34px;
-    color: #003a78;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
@@ -121,7 +123,6 @@ header h1 {
 
 header p {
     font-size: 15px;
-    color: #004b9c;
     margin-top: 5px;
 }
 
@@ -141,7 +142,6 @@ label {
     font-weight: 600;
     margin-bottom: 4px;
     display: inline-block;
-    color: #0d47a1;
 }
 
 
@@ -157,22 +157,11 @@ main section:last-child {
     flex: none;
     width: auto;
     max-width: 90%;
-    background: rgba(255, 255, 255, 0.35);
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-
-
-canvas {
-    max-width: 100%;
-    height: auto;
 }
 
 
@@ -272,23 +261,25 @@ input:focus {
 
 
 section {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
     backdrop-filter: blur(14px);
     border-radius: 18px;
     padding: 28px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 450px;
     margin: 12px auto;
-    
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: 0.4s ease;
 }
+
 
 
 footer {
     text-align: center;
     margin-top: 30px;
     padding: 12px;
-    background: #0d47a1;
+    background: var(--btn-bg);
     color: #ffffff;
     border-radius: 8px;
     font-size: 14px;

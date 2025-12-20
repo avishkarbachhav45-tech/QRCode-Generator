@@ -7,6 +7,8 @@ const btn = document.getElementById("generateBtn");
 const canvas = document.getElementById("qrCanvas");
 const fgColor = document.getElementById("fgColor");
 const bgColor = document.getElementById("bgColor");
+const themeToggle = document.getElementById("themeToggle");
+
 
 const sizeSlider = document.getElementById("qrSize");
 
@@ -114,4 +116,22 @@ downloadBtn.addEventListener("click", () => {
     link.download = "qr-code.png";   // file name
     link.href = canvas.toDataURL();  // convert canvas → image URL
     link.click();                    // trigger download
+});
+
+//  Light / Dark Mode Toggle
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.textContent = "☀️";
+}
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        themeToggle.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+    } else {
+        themeToggle.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+    }
 });
