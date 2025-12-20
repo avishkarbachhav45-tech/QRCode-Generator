@@ -392,3 +392,57 @@ h2 {
     border-color: #3b82f6;
     background: #e2e8f0;
 }
+
+
+   /* DARK MODE VISUAL FIXES */
+   
+.dark section {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Header */
+.dark header {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.dark header p {
+    color: #94a3b8;
+}
+
+/* Inputs */
+.dark input,
+.dark input[type="text"],
+.dark input[type="file"],
+.dark input[type="color"] {
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+}
+
+.dark input::placeholder {
+    color: #94a3b8;
+}
+
+/* QR container */
+.dark .qr-container {
+    background: #020617;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* QR canvas border */
+.dark #qrCanvas {
+    background: #020617;
+    border-color: #3b82f6;
+}
+
+/* Buttons */
+.dark button {
+    background: #2563eb;
+}
+
+.dark button:hover {
+    background: #1d4ed8;
+}
