@@ -60,10 +60,24 @@ function generateQR() {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
         if (logoImage) {
+
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = (qrSize * 0.25) / 2;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius + 1, 0, Math.PI * 2);
+            ctx.strokeStyle = "#ffffff";   // white ring
+            ctx.lineWidth = 6;             // ring thickness
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+
             const logoSize = qrSize * 0.25;
             const x = (canvas.width - logoSize) / 2;
             const y = (canvas.height - logoSize) / 2;
-            const radius = logoSize / 2;
+            // const radius = logoSize / 2;
 
             ctx.save();
 
@@ -78,6 +92,7 @@ function generateQR() {
             );
             ctx.closePath();
             ctx.clip();
+            
 
             // Draw logo inside circle
             ctx.drawImage(logoImage, x, y, logoSize, logoSize);
