@@ -394,55 +394,55 @@ h2 {
 }
 
 
-   /* DARK MODE VISUAL FIXES */
-   
-.dark section {
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-/* Header */
+/* HEADER FIX */
 .dark header {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* CARD FIX */
+.dark section {
+    background: rgba(15, 23, 42, 0.65);
     border: 1px solid rgba(255,255,255,0.08);
 }
 
-.dark header p {
-    color: #94a3b8;
-}
-
-/* Inputs */
+/* INPUT FIX */
 .dark input,
 .dark input[type="text"],
 .dark input[type="file"],
 .dark input[type="color"] {
-    background: #020617;
+    background: rgba(2, 6, 23, 0.7);
     color: #e5e7eb;
-    border: 1px solid #334155;
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
 .dark input::placeholder {
-    color: #94a3b8;
+    color: #9ca3af;
 }
 
-/* QR container */
+/* TEXT FIX */
+.dark h2,
+.dark h3,
+.dark label {
+    color: #c7d2fe;
+}
+
+/* QR CONTAINER FIX */
 .dark .qr-container {
-    background: #020617;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* QR canvas border */
-.dark #qrCanvas {
-    background: #020617;
-    border-color: #3b82f6;
+/* BACKGROUND GLOW FIX */
+.dark .circle1 {
+    background: #1e3a8a;
+}
+.dark .circle2 {
+    background: #6b21a8;
 }
 
-/* Buttons */
+/* BUTTON DEPTH (OPTIONAL BUT GOOD) */
 .dark button {
-    background: #2563eb;
+    box-shadow: 0 4px 12px rgba(59,130,246,0.25);
 }
 
-.dark button:hover {
-    background: #1d4ed8;
-}
