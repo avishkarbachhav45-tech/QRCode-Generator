@@ -63,8 +63,28 @@ function generateQR() {
             const logoSize = qrSize * 0.25;
             const x = (canvas.width - logoSize) / 2;
             const y = (canvas.height - logoSize) / 2;
+            const radius = logoSize / 2;
+
+            ctx.save();
+
+            // Create circular clipping mask
+            ctx.beginPath();
+            ctx.arc(
+                x + radius,
+                y + radius,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            ctx.closePath();
+            ctx.clip();
+
+            // Draw logo inside circle
             ctx.drawImage(logoImage, x, y, logoSize, logoSize);
+
+            ctx.restore();
         }
+
     };
 
     img.src = qr.toDataURL();
