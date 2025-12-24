@@ -165,3 +165,10 @@ themeToggle.addEventListener("click", () => {
         localStorage.setItem("theme", "light");
     }
 });
+
+
+navigator.clipboard.write([
+  new ClipboardItem({
+    "image/png": fetch(canvas.toDataURL()).then(r => r.blob())
+  })
+]);
