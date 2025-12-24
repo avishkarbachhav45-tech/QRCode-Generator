@@ -268,7 +268,7 @@ section {
     padding: 28px;
     width: 100%;
     max-width: 450px;
-    margin: 12px auto;
+    margin-bottom: 25px ;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     transition: 0.4s ease;
 }
@@ -313,7 +313,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* BEAUTIFUL GLASS SLIDER */
+
 #qrSize {
     -webkit-appearance: none;
     width: 100%;
@@ -328,14 +328,14 @@ h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Track */
+
 #qrSize::-webkit-slider-runnable-track {
     height: 10px;
     background: linear-gradient(90deg, #64b5f6, #1e88e5);
     border-radius: 10px;
 }
 
-/* Thumb */
+
 #qrSize::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 22px;
@@ -394,19 +394,19 @@ h2 {
 }
 
 
-/* HEADER FIX */
+
 .dark header {
     background: rgba(15, 23, 42, 0.75);
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* CARD FIX */
+
 .dark section {
     background: rgba(15, 23, 42, 0.65);
     border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* INPUT FIX */
+
 .dark input,
 .dark input[type="text"],
 .dark input[type="file"],
@@ -420,20 +420,17 @@ h2 {
     color: #9ca3af;
 }
 
-/* TEXT FIX */
 .dark h2,
 .dark h3,
 .dark label {
     color: #c7d2fe;
 }
 
-/* QR CONTAINER FIX */
 .dark .qr-container {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* BACKGROUND GLOW FIX */
 .dark .circle1 {
     background: #1e3a8a;
 }
@@ -441,8 +438,40 @@ h2 {
     background: #6b21a8;
 }
 
-/* BUTTON DEPTH (OPTIONAL BUT GOOD) */
 .dark button {
     box-shadow: 0 4px 12px rgba(59,130,246,0.25);
 }
 
+
+header {
+    position: relative;
+    padding: 14px 20px !important;
+    margin: 14px 0 !important;
+}
+
+.header-logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+
+
+.theme-top {
+    position: absolute;
+    right: 20px;
+    top: 25%;
+    transform: translateY(-15%);
+}
+
+
+header h1 {
+    margin-bottom: 4px;
+}
+
+header p {
+    margin-top: 0;
+}
