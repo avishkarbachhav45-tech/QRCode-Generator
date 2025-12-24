@@ -25,3 +25,18 @@ It allows users to generate QR codes instantly with customization options and do
 4. Click **Generate QR**
 5. Download the QR code using **Download QR**
 
+- - 
+
+## Screenshots
+
+### Light Mode
+![Light Mode](Light-mode.png)
+
+### Dark Mode
+![Dark Mode](Dark-mode.png)
+
+### QR with color and logo in Light mode
+![QR Preview](Color-and-Logo.png)
+
+### QR with color and logo in Dark mode
+![QR Preview](Color-and-Logo-Dark.png)
