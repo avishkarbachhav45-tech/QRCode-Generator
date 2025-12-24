@@ -30,13 +30,13 @@ It allows users to generate QR codes instantly with customization options and do
 ## Screenshots
 
 ### Light Mode
-![Light Mode](Light-mode.png)
+![Light Mode](Screenshots/Light-mode.png)
 
 ### Dark Mode
-![Dark Mode](Dark-mode.png)
+![Dark Mode](Screenshots/Dark-mode.png)
 
 ### QR with color and logo in Light mode
-![QR Preview](Color-and-Logo.png)
+![QR Preview](Screenshots/Color-and-Logo.png)
 
 ### QR with color and logo in Dark mode
-![QR Preview](Color-and-Logo-Dark.png)
+![QR Preview](Screenshots/Color-and-Logo-Dark.png)
