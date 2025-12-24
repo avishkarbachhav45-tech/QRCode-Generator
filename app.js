@@ -30,7 +30,7 @@ input.addEventListener("input", () => {
 
 function generateQR() {
     const value = input.value.trim();
-    const qrSize = parseInt(sizeSlider.value);  // slider size used here!
+    const qrSize = parseInt(sizeSlider.value);  
 
     if (!value) {
         const ctx = canvas.getContext("2d");
@@ -67,7 +67,7 @@ function generateQR() {
     const x = (canvas.width - logoSize) / 2;
     const y = (canvas.height - logoSize) / 2;
 
-    // white background (SAFE ZONE)
+    // white background 
     ctx.fillStyle = "#ffffff";
     ctx.beginPath();
     ctx.arc(
@@ -167,8 +167,8 @@ themeToggle.addEventListener("click", () => {
 });
 
 
-navigator.clipboard.write([
-  new ClipboardItem({
-    "image/png": fetch(canvas.toDataURL()).then(r => r.blob())
-  })
-]);
+// navigator.clipboard.write([
+//   new ClipboardItem({
+//     "image/png": fetch(canvas.toDataURL()).then(r => r.blob())
+//   })
+// ]);
