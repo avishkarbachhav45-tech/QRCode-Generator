@@ -91,8 +91,8 @@ h2, h3, label, header h1, header p {
 
 header {
     text-align: center;
-    margin: 25px 0;
-    padding: 18px;
+    margin: 18px 0;
+    padding: 14px;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(10px);
     border-radius: 16px;
@@ -148,8 +148,8 @@ label {
 main {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin-top: 25px;
+    gap: 18px;
+    margin-top: 18px;
 }
 
 
@@ -496,3 +496,9 @@ header p {
   background-color: white;
 }
 
+.app-container {
+  width: 100%;
+  max-width: 1100px;   /* 👈 KEY FIX */
+  margin: 0 auto;
+  padding: 0 16px;
+}
