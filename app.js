@@ -46,11 +46,14 @@ function generateQR() {
     canvas.style.height = qrSize + "px";
 
     const qr = new QRious({
-        value: value,
-        size: qrSize * dpr,
-        foreground: fgColor.value,
-        background: bgColor.value
-    });
+    value: value,
+    size: qrSize * dpr,
+    foreground: fgColor.value,
+    background: bgColor.value,
+    level: 'H'
+
+});
+
 
     const ctx = canvas.getContext("2d");
     const img = new Image();
@@ -60,45 +63,37 @@ function generateQR() {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
         if (logoImage) {
+    const logoSize = qrSize * 0.18;
+    const x = (canvas.width - logoSize) / 2;
+    const y = (canvas.height - logoSize) / 2;
 
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const radius = (qrSize * 0.25) / 2;
+    // white background (SAFE ZONE)
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(
+        canvas.width / 2,
+        canvas.height / 2,
+        (logoSize / 2) + 6,
+        0,
+        Math.PI * 2
+    );
+    ctx.fill();
 
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius + 1, 0, Math.PI * 2);
-            ctx.strokeStyle = "#ffffff";   // white ring
-            ctx.lineWidth = 6;             // ring thickness
-            ctx.stroke();
-            ctx.closePath();
-            ctx.restore();
+    // draw logo
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(
+        canvas.width / 2,
+        canvas.height / 2,
+        logoSize / 2,
+        0,
+        Math.PI * 2
+    );
+    ctx.clip();
+    ctx.drawImage(logoImage, x, y, logoSize, logoSize);
+    ctx.restore();
+}
 
-            const logoSize = qrSize * 0.25;
-            const x = (canvas.width - logoSize) / 2;
-            const y = (canvas.height - logoSize) / 2;
-            // const radius = logoSize / 2;
-
-            ctx.save();
-
-            // Create circular clipping mask
-            ctx.beginPath();
-            ctx.arc(
-                x + radius,
-                y + radius,
-                radius,
-                0,
-                Math.PI * 2
-            );
-            ctx.closePath();
-            ctx.clip();
-            
-
-            // Draw logo inside circle
-            ctx.drawImage(logoImage, x, y, logoSize, logoSize);
-
-            ctx.restore();
-        }
 
     };
 
